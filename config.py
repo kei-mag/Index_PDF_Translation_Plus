@@ -1,7 +1,7 @@
 import os
 # config.py
 # ----- ローカル版 設定 ------
-DeepL_API_Key = "Your DeepL API Key"
+DeepL_API_Key = os.environ["DeepL_API_Key"]
 DeepL_URL = "https://api-free.deepl.com/v2/translate" # DeepL Proの場合は、「https://api.deepl.com/v2/translate」を設定してください
 Output_folder_path = "./output/"
 
