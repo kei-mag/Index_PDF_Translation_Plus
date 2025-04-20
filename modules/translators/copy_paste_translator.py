@@ -3,7 +3,7 @@ import webbrowser
 from .translator_base import TranslationError, TranslatorBase
 
 
-class CopyPasteTranslator(TranslatorBase):
+class CopyAndPasteTranslator(TranslatorBase):
     services = {
         "DeepL": "https://www.deepl.com/ja/translator#/{target_lang}/{text}",
         "Google": "https://translate.google.com/?op=translate&tl={target_lang}&text={text}",
@@ -26,7 +26,7 @@ class CopyPasteTranslator(TranslatorBase):
         """
         if service in self.services:
             self.url = self.services[service]
-        elif service == "custom":
+        elif service == "custom" and "url" in kwargs:
             self.url = kwargs["url"]
         else:
             raise ValueError(f"argument 'service' must be {",".join(self.services.keys())} or custom (with url).")
