@@ -1,0 +1,20 @@
+# docker-compose.yml
+
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # .env か環境変数で上書き可能（未設定時は openblas）
+        LLAMA_CPP_BACKEND: ${LLAMA_CPP_BACKEND:-openblas}
+    environment:
+      - LLAMA_CPP_BACKEND=${LLAMA_CPP_BACKEND:-openblas}
+      - PYTHONPATH=/app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: ["python", "app.py"]

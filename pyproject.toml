@@ -1,0 +1,41 @@
+[project]
+name = "Index-PDF-Translation-Plus"
+version = "0.1.0"
+description = "A Native/Web app translating English academic paper PDFs into Japanese using various translation methods."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "kei-mag", email = "61485115+kei-mag@users.noreply.github.com" }
+]
+dependencies = [
+  "flet==0.28.2"
+]
+
+[tool.flet]
+# org name in reverse domain name notation, e.g. "com.mycompany".
+# Combined with project.name to build bundle ID for iOS and Android apps
+org = "net.keimag"
+
+# project display name that is used as an app title on Android and iOS home screens,
+# shown in window titles and about app dialogs on desktop.
+product = "Indqx PDF翻訳 Plus"
+
+# company name to display in about app dialogs
+company = "Flet"
+
+# copyright text to display in about app dialogs
+copyright = "Copyright (C) 2025 by kei-mag"
+
+[tool.flet.app]
+path = "src"
+
+[tool.uv]
+dev-dependencies = [
+    "flet[all]==0.28.2",
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+flet = {extras = ["all"], version = "0.28.2"}
