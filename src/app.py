@@ -2,7 +2,7 @@ import os
 
 import flet as ft
 
-import config_copy as conf
+import config as conf
 
 
 def main(page: ft.Page):
